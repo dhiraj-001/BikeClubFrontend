@@ -131,10 +131,12 @@
 
   body {
     @apply bg-background text-foreground font-body;
+    
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
+    letter-spacing: 0.06em;
   }
 }
 
@@ -143,13 +145,14 @@
   .btn-vintage {
     @apply bg-gradient-to-r from-vintage-gold to-copper text-primary-foreground 
            font-bold px-8 py-3 rounded-sm shadow-vintage hover:shadow-glow 
-           transition-all duration-300 transform hover:scale-105 uppercase tracking-wider;
+           transition-all duration-1000 transform hover:scale-105 uppercase tracking-wider;
+
   }
 
   .btn-chrome {
     @apply bg-gradient-to-r from-chrome to-worn-steel text-oil-black 
            font-bold px-6 py-2 rounded-sm shadow-vintage hover:shadow-glow 
-           transition-all duration-300 border-2 border-chrome/30;
+           transition-all duration-1000 border-2 border-chrome/30;
   }
 
   /* Vintage card effects */
@@ -322,6 +325,15 @@
   }
 }
 
+@keyframes slow-glow {
+  0%, 100% { box-shadow: var(--shadow-vintage); }
+  50% { box-shadow: 0 0 10px hsl(var(--vintage-gold) / 0.6); }
+}
+
+.btn-vintage.slow-glow {
+  animation: slow-glow 2s infinite;
+}
+
 /* Vintage texture overlay */
 .texture-overlay::before {
   content: '';
@@ -335,4 +347,27 @@
   background-size: 20px 20px;
   pointer-events: none;
   opacity: 0.1;
+}
+
+.nav-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: hsl(var(--vintage-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.nav-underline:hover::after,
+.nav-underline:focus::after {
+  transform: scaleX(1);
 }
