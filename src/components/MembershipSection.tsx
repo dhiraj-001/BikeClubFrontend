@@ -99,7 +99,10 @@ const MembershipSection = () => {
         {/* Membership Tiers */}
         <div ref={tiersRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {membershipTiers.map((tier, index) => (
-            <Card key={tier.name} className={`vintage-card ${tier.color} border-2 relative animate-on-scroll ${tier.popular ? 'border-vintage-gold scale-105' : 'border-border'}`}>
+            <Card
+              key={tier.name}
+              className={`vintage-card ${tier.color} border-2 relative animate-on-scroll ${tier.popular ? 'border-vintage-gold scale-105 overflow-visible' : 'border-border'}`}
+            >
               {tier.popular && (
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-vintage-gold text-oil-black font-bold">
                   MOST POPULAR

@@ -121,7 +121,7 @@ const MerchandiseSection = () => {
         </div>
 
         {/* Product Grid */}
-        <div ref={productsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={productsRef} className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {products.map((product) => (
             <Card key={product.id} className="vintage-card group hover:scale-105 transition-all duration-300 animate-on-scroll">
               <CardHeader className="p-0 relative overflow-hidden">

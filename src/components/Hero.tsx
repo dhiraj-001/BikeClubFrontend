@@ -11,7 +11,7 @@ const Hero = () => {
         <img 
           src={heroImage} 
           alt="Vintage Motorcycle" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-hero"></div>
         <div className="absolute inset-0 texture-overlay"></div>
@@ -33,7 +33,7 @@ const Hero = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto fade-in-up leading-relaxed">
+          <p className="text-xl md:text-2xl text-foreground mb-8 max-w-2xl mx-auto fade-in-up leading-relaxed">
             Join the brotherhood of steel, chrome, and freedom. Where legends are born on two wheels.
           </p>
 
@@ -52,15 +52,15 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto fade-in-up">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-display font-bold text-vintage-gold mb-2">500+</div>
-              <div className="text-muted-foreground uppercase tracking-wider text-sm">Members Strong</div>
+              <div className="text-foreground uppercase tracking-wider text-sm">Members Strong</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-display font-bold text-vintage-gold mb-2">50+</div>
-              <div className="text-muted-foreground uppercase tracking-wider text-sm">Years of Brotherhood</div>
+              <div className="text-foreground uppercase tracking-wider text-sm">Years of Brotherhood</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-display font-bold text-vintage-gold mb-2">1000+</div>
-              <div className="text-muted-foreground uppercase tracking-wider text-sm">Miles Conquered</div>
+              <div className="text-foreground uppercase tracking-wider text-sm">Miles Conquered</div>
             </div>
           </div>
         </div>

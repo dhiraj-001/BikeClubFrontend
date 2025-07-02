@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import clubLogo from '@/assets/club-logo.png';
-
+import { motion, AnimatePresence } from 'framer-motion';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -16,7 +16,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4">
         {/* Top bar with contact info */}
         <div className="hidden md:flex justify-end items-center py-2 text-sm text-muted-foreground border-b border-border/30">
@@ -73,27 +73,35 @@ const Header = () => {
         </nav>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-vintage">
-            <div className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="block text-foreground hover:text-vintage-gold transition-colors font-medium uppercase tracking-wide"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <div className="pt-4 border-t border-border/30">
-                <Button className="btn-vintage w-full">
-                  Join the Club
-                </Button>
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="lg:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-vintage"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <div className="px-4 py-6 space-y-4">
+                {navItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="block text-foreground hover:text-vintage-gold transition-colors font-medium uppercase tracking-wide"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+                <div className="pt-4 border-t border-border/30">
+                  <Button className="btn-vintage slow-glow w-full">
+                    Join the Club
+                  </Button>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
