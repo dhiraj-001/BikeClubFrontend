@@ -1,0 +1,10 @@
+{
+  "routes": [
+    { "src": "/sign-in", "dest": "/" },
+    { "src": "/sign-up", "dest": "/" },
+    { "src": "/admin", "dest": "/" },
+    { "src": "/forgot-password", "dest": "/" }
+
+
+  ]
+  }
