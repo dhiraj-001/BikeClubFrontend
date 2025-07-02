@@ -288,6 +288,7 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
 @keyframes fadeInLeft {
   from {
     opacity: 0;
